@@ -1,13 +1,14 @@
+{% extends 'base.html' %}
 {% load socialaccount %}
-<html>
-<body>
-<h1>My Google OAuth Project </h1>
-{% if user.is_authenticated %}
-  <p>Welcome, You are logged in as {{ user.username }}</p>
-  <a target="_black" href="admin">admin</a>
-  <a href="{% url 'logout' %}">Logout</a>
-{% else %}
-  <a href="{% provider_login_url 'google' %}">Login With Google</a>
-{% endif %}
-</body>
-</html>
+
+<div class="container">
+        <div class="row">
+            <div class="mpesa">
+                <a href="{% url 'test_stk_push_success' %}">Proceed to pay</a>
+            </div>
+        </div>
+    </div>
+    
+{% block content %}
+
+{% endblock %}

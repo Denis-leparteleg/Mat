@@ -1,0 +1,24 @@
+{% load socialaccount %}
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <div class="container">
+        <a class="navbar-brand" href="#" style="color: white;">Mat Pooler</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav" >
+                <a class="nav-item nav-link active" href="{% url 'index' %}" style="color: white;">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="{% url 'findbus' %}" style="color: white;">Find Bus</a>
+                <a class="nav-item nav-link" href="{% url 'seebookings' %}" style="color: white;">See Bookings</a>
+                {% if user.is_authenticated %}
+                <p>Welcome, You are logged in as {{ user.username }}</p>
+                <a target="_black" href="admin">admin</a>
+                <a href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                <a href="{% provider_login_url 'google' %}">Login With Google</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>
