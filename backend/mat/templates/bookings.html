@@ -9,7 +9,7 @@
     <h3>Bill details</h3>
     <!-- Button to Open the Modal -->
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-        Bill details
+       View Bill details
     </button>
 
     <!-- The Modal -->
@@ -19,7 +19,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Modal Heading</h4>
+                    <h4 class="modal-title">HERE'S YOUR BILL DETAILS</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -30,8 +30,8 @@
                         <li class="list-group-item"><b>Terminus :</b> {{booking.terminus}}</li>
                         <li class="list-group-item"><b>Route:</b> {{booking.route}}</li>
                         <li class="list-group-item"><b>Number of seats:</b> {{booking.nos}}</li>
-                        <li class="list-group-item"><b> Fare_price:</b> {{booking.fare_price}}</li>
-                        <li class="list-group-item"><b>Cost:</b> {{cost}}</li>
+                        <li class="list-group-item"><b> Fare:</b> {{booking.fare_price}}</li>
+                        <li class="list-group-item"><b>Total amount:</b> {{cost}}</li>
                         <li class="list-group-item"><b>Date:</b> {{booking.date}}</li>
                         <li class="list-group-item"><b>Time:</b> {{booking.time}}</li>
                     </ul>
@@ -43,7 +43,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="mpesa">
-                             <a href="{% url 'test_stk_push_success' %}">Proceed to pay</a>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                                <a style="color: white; href="{% url 'test_stk_push_success' %}">LIPA NA MPESA</a>    
+                            </button>
                         </div>
                     </div>
                 </div>
