@@ -1,44 +1,43 @@
 {% extends 'base.html' %}
 {% block content %}
 <h3>{{msg}}</h3>
-<h2>List of buses</h2>
+<h2>List of saccos</h2>
 <table class="table table-striped" >
     <thead style="background-color: blue;color: white;">
     <td>ID</td>
     <td>NAME</td>
-    <td>SOURCE</td>
-    <td>DESTINATION</td>
+    <td>TERMINUS</td>
+    <td>ROUTE</td>
     <td>NUM OF SEATS</td>
     <td>NUM OF SEATS REM</td>
-    <td>PRICE</td>
+    <td>FARE_PRICE</td>
     <td>DATE</td>
     <td>TIME</td>
 
     </thead>
 
-    {% for row in bus_list %}
+    {% for row in mat_list %}
     <tr>
         <td>{{row.id }}</td>
-        <td>{{row.bus_name}}</td>
-        <td>{{row.source}}</td>
-        <td>{{row.dest}}</td>
+        <td>{{row.sacco_name}}</td>
+        <td>{{row.terminus}}</td>
+        <td>{{row.route}}</td>
         <td>{{row.nos}}</td>
         <td>{{row.rem}}</td>
-        <td>{{row.price}}</td>
+        <td>{{row.fare_price}}</td>
         <td>{{row.date}}</td>
         <td>{{row.time}}</td>
-
 
     </tr>
     {% endfor %}
 </table>
 <form action="{% url 'bookings' %}" method="post">
-    <h3>Choose bus to book</h3>
+    <h3>Choose mat to book</h3>
     {% csrf_token %}
     <div class="col-auto">
-        <label for="example-email-input" class="col-2 col-form-label">Bus ID</label>
+        <label for="example-email-input" class="col-2 col-form-label">Mat ID</label>
         <div class="col-5">
-            <input name='bus_id' class="form-control" type="number" id="example-email-input">
+            <input name='mat_id' class="form-control" type="number" id="example-email-input">
         </div>
     </div>
     <div class="col=auto">
@@ -50,7 +49,7 @@
     <br>
     <br>
     <div class="pull-right">
-        <button type="submit" class="btn btn-success float-left">Book bus</button>
+        <button type="submit" class="btn btn-success float-left">Book mat</button>
     </div>
 
 

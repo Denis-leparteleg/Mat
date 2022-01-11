@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Bus, User, Book
+from .models import Mat, User, Booking
 
 # Register your models here.
 
-admin.site.register(Bus)
+admin.site.register(Mat)
 admin.site.register(User)
-admin.site.register(Book)
+admin.site.register(Booking)
 
 

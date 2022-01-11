@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav" >
                 <a class="nav-item nav-link active" href="{% url 'home' %}" style="color: white;">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="{% url 'findbus' %}" style="color: white;">Find Bus</a>
+                <a class="nav-item nav-link" href="{% url 'findmat' %}" style="color: white;">Find Mat</a>
                 <a class="nav-item nav-link" href="{% url 'seebookings' %}" style="color: white;">See Bookings</a>
                 {% if user.is_authenticated %}
                 <p>Welcome, You are logged in as {{ user.username }}</p>

@@ -3,19 +3,19 @@
 <div class="container">
         <div class="row">
             <div class="col-sm-6 mx-auto" style="margin-top: 70px">
-                <h2>Find bus</h2>
-                <form action="{% url 'findbus' %}" method="post">
+                <h2>Find mat</h2>
+                <form action="{% url 'findmat' %}" method="post">
                     {% csrf_token %}
                     <div class="form-group row">
-                        <label for="example-email-input" class="col-2 col-form-label">From</label>
+                        <label for="example-email-input class="col-2 col-form-label">Terminus</label>
                         <div class="col-10">
-                            <input name='source' class="form-control" type="text" id="example-email-input">
+                            <input name='terminus' class="form-control" type="text" id="example-email-input">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="example-email-input" class="col-2 col-form-label">Destination</label>
+                        <label for="example-email-input" class="col-2 col-form-label">Route</label>
                         <div class="col-10">
-                            <input name='destination' class="form-control" type="text">
+                            <input name='route' class="form-control" type="text">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="pull-right">
-                        <button type="submit" class="btn btn-success float-right">Find bus</button>
+                        <button type="submit" class="btn btn-success float-right">Find mat</button>
                     </div>
                     {{error}}
 

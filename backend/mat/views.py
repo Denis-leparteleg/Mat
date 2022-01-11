@@ -7,7 +7,7 @@ from decimal import Decimal
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from requests.api import get
-from .models import User, Bus, Book
+from .models import User, Mat, Booking
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -90,91 +90,91 @@ def about(request):
 
 
 @login_required(login_url='login')
-def findbus(request):
+def findmat(request):
     context = {}
     if request.method == 'POST':
-        source_r = request.POST.get('source')
-        dest_r = request.POST.get('destination')
+        terminus_r = request.POST.get('terminus')
+        route_r = request.POST.get('route')
         date_r = request.POST.get('date')
-        bus_list = Bus.objects.filter(source=source_r, dest=dest_r, date=date_r)
-        if bus_list:
+        mat_list = Mat.objects.filter(terminus=terminus_r, route=route_r, date=date_r)
+        if mat_list:
              return render(request, 'list.html', locals())
         else:
-            context["error"] = "Sorry no buses available"
-            return render(request, 'findbus.html', context)
+            context["error"] = "Sorry no matatus available"
+            return render(request, 'findmat.html', context)
     else:
-        return render(request, 'findbus.html')
+        return render(request, 'findmat.html')
 
 
 @login_required(login_url='login')
 def bookings(request):
     context = {}
     if request.method == 'POST':
-        id_r = request.POST.get('bus_id')
+        id_r = request.POST.get('mat_id')
         seats_r = int(request.POST.get('no_seats'))
-        bus = Bus.objects.get(id=id_r)
-        if bus:
-            if bus.rem > int(seats_r):
-                name_r = bus.bus_name
-                cost = int(seats_r) * bus.price
-                source_r = bus.source
-                dest_r = bus.dest
-                nos_r = Decimal(bus.nos)
-                price_r = bus.price
-                date_r = bus.date
-                time_r = bus.time
+        mat = Mat.objects.get(id=id_r)
+        if mat:
+            if mat.rem > int(seats_r):
+                sacco_name_r = mat.sacco_name
+                cost = int(seats_r) * mat.fare_price
+                terminus_r = mat.terminus
+                route_r = mat.route
+                nos_r = Decimal(mat.nos)
+                fare_price_r = mat.fare_price
+                date_r = mat.date
+                time_r = mat.time
                 username_r = request.user.username
                 email_r = request.user.email
                 userid_r = request.user.id
-                rem_r = bus.rem - seats_r
-                Bus.objects.filter(id=id_r).update(rem=rem_r)
-                book = Book.objects.create(name=username_r, email=email_r, userid=userid_r, bus_name=name_r,
-                                           source=source_r, busid=id_r,
-                                           dest=dest_r, price=price_r, nos=seats_r, date=date_r, time=time_r,
+                rem_r = mat.rem - seats_r
+                Mat.objects.filter(id=id_r).update(rem=rem_r)
+                booking = Booking.objects.create(name=username_r, email=email_r, userid=userid_r, sacco_name=sacco_name_r,
+                                           terminus=terminus_r, mat_id=id_r,
+                                           route=route_r, fare_price=fare_price_r, nos=seats_r, date=date_r, time=time_r,
                                            status='BOOKED')
-                print('------------book id-----------', book.id)
+                print('------------booking id-----------', booking.id)
                 # book.save()
                 return render(request, 'bookings.html', locals())
             else:
                 context["error"] = "Sorry select fewer number of seats"
-                return render(request, 'findbus.html', context)
+                return render(request, 'findmat.html', context)
 
     else:
-        return render(request, 'findbus.html')
+        return render(request, 'findmat.html')
 
 
 @login_required(login_url='login')
 def cancellings(request):
     context = {}
     if request.method == 'POST':
-        id_r = request.POST.get('bus_id')
+        id_r = request.POST.get('mat_id')
         #seats_r = int(request.POST.get('no_seats'))
 
         try:
-            book = Book.objects.get(id=id_r)
-            bus = Bus.objects.get(id=book.busid)
-            rem_r = bus.rem + book.nos
-            Bus.objects.filter(id=book.busid).update(rem=rem_r)
+            booking = Booking.objects.get(id=id_r)
+            mat = Mat.objects.get(id=booking.mat_id)
+            rem_r = mat.rem + booking.nos
+            Mat.objects.filter(id=booking.mat_id).update(rem=rem_r)
             #nos_r = book.nos - seats_r
-            Book.objects.filter(id=id_r).update(status='CANCELLED')
-            Book.objects.filter(id=id_r).update(nos=0)
+            Booking.objects.filter(id=id_r).update(status='CANCELLED')
+            Booking.objects.filter(id=id_r).update(nos=0)
             return redirect(seebookings)
-        except Book.DoesNotExist:
-            context["error"] = "Sorry You have not booked that bus"
+        except Booking.DoesNotExist:
+            context["error"] = "Sorry You have not booked that matatu"
             return render(request, 'error.html', context)
     else:
-        return render(request, 'findbus.html')
+        return render(request, 'findmat.html')
 
 
 @login_required(login_url='login')
 def seebookings(request,new={}):
     context = {}
     id_r = request.user.id
-    book_list = Book.objects.filter(userid=id_r)
-    if book_list:
+    booking_list = Booking.objects.filter(userid=id_r)
+    if booking_list:
         return render(request, 'booklist.html', locals())
     else:
-        context["error"] = "Sorry no buses booked"
-        return render(request, 'findbus.html', context)
+        context["error"] = "Sorry no matatus booked"
+        return render(request, 'findmat.html', context)
 
 
