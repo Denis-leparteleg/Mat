@@ -7,7 +7,7 @@ from decimal import Decimal
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from requests.api import get
-from .models import Users, Bus, Book
+from .models import User, Bus, Book
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -25,12 +25,6 @@ import re
 cl = MpesaClient()
 stk_push_callback_url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
 b2c_callback_url = 'https://sandbox.safaricom.co.ke/mpesa/b2c/v1/paymentrequest'
-
-def index(request):
-   if request.user.is_authenticated:
-        return render(request, 'index.html')
-   else:
-        return render(request, 'index.html')
 
 def getAccessToken(request):
     consumer_key = 'sFpwIfYu5YBZFZe48JaftAYbWaBGW5xe'
@@ -85,7 +79,17 @@ def logout_view(request):
     logout(request)
     # Redirect to a success page.
     
-@login_required(login_url='signin')
+def home(request):
+    if request.user.is_authenticated:
+        return render(request, 'index.html')
+    else:
+        return render(request, 'index.html')
+
+def about(request):
+    return render(request, 'about.html', {'title': 'About'})
+
+
+@login_required(login_url='login')
 def findbus(request):
     context = {}
     if request.method == 'POST':
@@ -94,15 +98,15 @@ def findbus(request):
         date_r = request.POST.get('date')
         bus_list = Bus.objects.filter(source=source_r, dest=dest_r, date=date_r)
         if bus_list:
-            return render(request, 'list.html', locals())
+             return render(request, 'list.html', locals())
         else:
-            context["error"] = "Sorry no buses availiable"
+            context["error"] = "Sorry no buses available"
             return render(request, 'findbus.html', context)
     else:
         return render(request, 'findbus.html')
 
 
-@login_required(login_url='signin')
+@login_required(login_url='login')
 def bookings(request):
     context = {}
     if request.method == 'POST':
@@ -139,7 +143,7 @@ def bookings(request):
         return render(request, 'findbus.html')
 
 
-@login_required(login_url='signin')
+@login_required(login_url='login')
 def cancellings(request):
     context = {}
     if request.method == 'POST':
@@ -162,7 +166,7 @@ def cancellings(request):
         return render(request, 'findbus.html')
 
 
-@login_required(login_url='signin')
+@login_required(login_url='login')
 def seebookings(request,new={}):
     context = {}
     id_r = request.user.id
@@ -172,3 +176,5 @@ def seebookings(request,new={}):
     else:
         context["error"] = "Sorry no buses booked"
         return render(request, 'findbus.html', context)
+
+

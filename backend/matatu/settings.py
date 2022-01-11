@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     # 'tinymice',
     'bootstrap4',
     'bootstrap3',
+    'crispy_forms',
+    'django_static_fontawesome',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',

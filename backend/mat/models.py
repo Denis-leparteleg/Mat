@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 from django.db import models
 
-
 # Create your models here.
 class AccessToken(models.Model):
     token = models.CharField(max_length=30)
@@ -27,7 +26,7 @@ class Bus(models.Model):
         return self.bus_name
 
 
-class Users(models.Model):
+class User(models.Model):
     user_id = models.AutoField(primary_key=True)
     email = models.EmailField()
     name = models.CharField(max_length=30)
@@ -54,7 +53,7 @@ class Book(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=6)
     date = models.DateField()
     time = models.TimeField()
-    status = models.CharField(choices=TICKET_STATUSES, default=BOOKED, max_length=2)
+    status = models.CharField(choices=TICKET_STATUSES, default=BOOKED, max_length=255)
 
     def __str__(self):
         return self.email
