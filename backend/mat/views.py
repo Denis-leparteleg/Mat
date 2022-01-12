@@ -39,8 +39,8 @@ def oauth_success(request):
 	r = cl.access_token()
 	return JsonResponse(r, safe=False)
 
-def stk_push_success(request):
-	phone_number = config('LNM_PHONE_NUMBER')
+def stk_push_success(request, p_number):
+	phone_number = p_number
 	amount = 1
 	account_reference = 'Mat Pooler'
 	transaction_desc = 'STK Push Description'
@@ -88,6 +88,27 @@ def home(request):
 def about(request):
     return render(request, 'about.html', {'title': 'About'})
 
+def payment (request):
+    if request.method == 'POST':
+        name=request.POST.get('fname')
+        phone_number=request.POST.get('phone_number')
+
+        ph_number = None
+
+        if phone_number[0] == '0':
+            ph_number = '254'+ phone_number[1:]
+        elif phone_number[0:2] == '254':
+            ph_number = phone_number
+        else:
+            # messages.error(request, 'Check you Phone Number format 2547xxxxxxxx')
+            return redirect(request.get_full_path())
+
+
+        stk_push_success(request, ph_number)
+
+        return HttpResponse(f'Stk Push for {phone_number}')
+    
+    return render (request,'payments.html', {'title': 'Payment'})
 
 @login_required(login_url='login')
 def findmat(request):

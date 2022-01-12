@@ -19,6 +19,7 @@ urlpatterns = [
     path('cancellings', views.cancellings, name="cancellings"),
     path('seebookings', views.seebookings, name="seebookings"),
     path('about/', views.about, name='about'),
+    path('payment/', views.payment, name='payment'),
     path('access/token', views.getAccessToken, name='get_mpesa_access_token'),
     path('', include(test_patterns)),
     path('accounts/', include('allauth.urls')),
