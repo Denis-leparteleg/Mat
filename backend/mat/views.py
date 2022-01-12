@@ -199,3 +199,38 @@ def seebookings(request,new={}):
         return render(request, 'findmat.html', context)
 
 
+# def signup(request):
+#     context = {}
+#     if request.method == 'POST':
+#         name_r = request.POST.get('name')
+#         email_r = request.POST.get('email')
+#         password_r = request.POST.get('password')
+#         user = User.objects.create_user(name_r, email_r, password_r, )
+#         if user:
+#             login(request, user)
+#             return render(request, 'myapp/thank.html')
+#         else:
+#             context["error"] = "Provide valid credentials"
+#             return render(request, 'users/registers.html', context)
+#     else:
+#         return render(request, 'users/signup.html', context)
+# def signin(request):
+#     context = {}
+#     if request.method == 'POST':
+#         name_r = request.POST.get('name')
+#         password_r = request.POST.get('password')
+#         user = authenticate(request, username=name_r, password=password_r)
+#         if user:
+#             login(request, user)
+#             # username = request.session['username']
+#             context["user"] = name_r
+#             context["id"] = request.user.id
+#             return render(request, 'myapp/base.html', context)
+#             # return HttpResponseRedirect('success')
+#         else:
+#             context["error"] = "Provide valid credentials"
+#             return render(request, 'users/login.html', context)
+#     else:
+#         context["error"] = "You are not logged in"
+#         return render(request, 'users/login.html', context)
+

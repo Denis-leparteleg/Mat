@@ -1,14 +1,15 @@
 {% load socialaccount %}
-<nav class="navbar navbar-expand-lg navbar-light bg-success">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-success">
     <div class="container">
         <a class="navbar-brand" href="#" style="color: white;">MAT POOLER</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav" >
-                <a class="nav-item nav-link active" href="{% url 'home' %}" style="color: white;">HOME <span class="sr-only">(current)</span></a>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="{% url 'home' %}" style="color: white;">HOME <span
+                        class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="{% url 'findmat' %}" style="color: white;">BOOK MATATU</a>
                 <a class="nav-item nav-link" href="{% url 'seebookings' %}" style="color: white;">MY BOOKINGS</a>
                 <a class="nav-item nav-link" href="{% url 'about' %}" style="color: white;">ABOUT US</a>
@@ -16,9 +17,99 @@
                 <a class="nav-item nav-link" href="admin" style="color: white;">ADMIN</a>
                 <a class="nav-item nav-link" href="{% url 'logout' %}" style="color: white;">LOGOUT</a>
                 {% else %}
-                <a class="nav-item nav-link" href="{% provider_login_url 'google' %}" style="color: white;">LOGIN WITH GOOGLE</a>
+                <a class="nav-item nav-link" href="{% provider_login_url 'google' %}" style="color: white;">LOGIN WITH
+                    GOOGLE</a>
                 {% endif %}
             </div>
         </div>
     </div>
-</nav>
+</nav> -->
+
+
+
+<!-- ***** Header Area Start ***** -->
+<header class="header-area">
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar justify-content-between" id="monaNav">
+
+                <!-- Background Curve -->
+                <div class="bg-curve" style="background-image: url(../../static/img/core-img/curve.png);"></div>
+
+                <!-- Logo -->
+                <a class="nav-brand" href="/"><img style="width: 80px;" src="../../static/img/core-img/logo.png"
+                        alt=""></a>
+
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+
+                <!-- Menu -->
+                <div class="classy-menu">
+                    <!-- Menu Close Button -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul id="nav">
+                            <li class="current-item"><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'findmat' %}">Booking</a></li>
+                            <li><a href="{% url 'seebookings' %}">My Bookings</a></li>
+                            <li><a href="{% url 'about' %}">Contact Us</a></li>
+
+
+
+                            {% if user.is_authenticated %}
+                            <li><a href="#">Account</a>
+                                <ul class="dropdown">
+                                    <li><a href="./blog.html">- Account Details</a></li>
+                                    <li><a href="./single-blog.html">- Edit Profile</a></li>
+                                    <li><a href="{% url 'logout' %}">- Logout</a></li>
+                                </ul>
+                            </li>
+                            {% else %}
+                            <li><a href="{% url 'logout' %}">Login</a></li>
+                            {% endif %}
+                        </ul>
+
+                        <!-- Search Icon -->
+                        <div class="search-icon" data-toggle="modal" data-target="#searchModal">
+                            <i class="icon_search"></i>
+                        </div>
+                    </div>
+                    <!-- Nav End -->
+
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
+
+<!-- ***** Top Search Area Start ***** -->
+<div class="top-search-area">
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- Close Button -->
+                    <button type="button" class="btn close-btn" data-dismiss="modal"><i
+                            class="fa fa-times"></i></button>
+                    <!-- Form -->
+                    <form action="index.html" method="post">
+                        <input type="search" name="top-search-bar" class="form-control"
+                            placeholder="Search and hit enter...">
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Top Search Area End ***** -->
