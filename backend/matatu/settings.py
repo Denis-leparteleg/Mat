@@ -57,8 +57,8 @@ INSTALLED_APPS = [
     # 'tinymice',
     'bootstrap4',
     'bootstrap3',
-    'crispy_forms',
-    'django_static_fontawesome',
+    # 'crispy_forms',
+    # 'django_static_fontawesome',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -183,7 +183,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 django_heroku.settings(locals())
 
-SITE_ID = 3
+SITE_ID = 4
 LOGIN_REDIRECT_URL ='/'
 LOGOUT_REDIRECT_URL ='/'
 
