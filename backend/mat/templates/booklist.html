@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>{{msg}}</h3>
+<h2>List of matatus</h2>
+<table class="table table-striped">
+    <thead style="background-color: blue;color: white;">
+    <td>BOOKING ID</td>
+    <td>USER NAME</td>
+    <td>SACCO NAME</td>
+    <td>TERMINUS</td>
+    <td>ROUTE</td>
+    <td>NUM OF SEATS</td>
+    <td>FARE_PRICE</td>
+    <td>DATE</td>
+    <td>TIME</td>
+    <td>STATUS</td>
+
+
+    </thead>
+
+    {% for row in booking_list %}
+    <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.customer_name}}</td>
+        <td>{{row.sacco_name}}</td>
+        <td>{{row.terminus}}</td>
+        <td>{{row.route}}</td>
+        <td>{{row.nos}}</td>
+        <td>{{row.fare_price}}</td>
+        <td>{{row.date}}</td>
+        <td>{{row.time}}</td>
+        <td>{{row.status}}</td>
+
+
+    </tr>
+    {% endfor %}
+</table>
+<form action="{% url 'cancellings' %}" method="post">
+    <h3>Choose mat to book</h3>
+    {% csrf_token %}
+    <div class="col-auto">
+        <label for="example-email-input" class="col-2 col-form-label">Mat ID</label>
+        <div class="col-5">
+            <input name='mat_id' class="form-control" type="number" id="example-email-input">
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <div class="pull-right">
+        <button type="submit" class="btn btn-danger float-left">Cancel mat</button>
+    </div>
+
+
+    {{error}}
+
+</form>
+
+{% endblock %}

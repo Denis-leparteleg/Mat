@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>{{msg}}</h3>
+<h2> HERE'S AVAILABLE MATATU FOR BOOKING</h2>
+<table class="table table-striped" >
+    <thead style="background-color: blue;color: white;">
+    <td>ID</td>
+    <td>MATATU NAME</td>
+    <td>TERMINUS</td>
+    <td>ROUTE</td>
+    <td>TOTAL SEATS</td>
+    <td>AVAILABLE SEATS</td>
+    <td>FARE</td>
+    <td>DATE</td>
+    <td>TIME</td>
+
+    </thead>
+
+    {% for row in mat_list %}
+    <tr>
+        <td>{{row.id }}</td>
+        <td>{{row.sacco_name}}</td>
+        <td>{{row.terminus}}</td>
+        <td>{{row.route}}</td>
+        <td>{{row.nos}}</td>
+        <td>{{row.rem}}</td>
+        <td>{{row.fare_price}}</td>
+        <td>{{row.date}}</td>
+        <td>{{row.time}}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+<form action="{% url 'bookings' %}" method="post">
+    <h3>Choose mat to book</h3>
+    {% csrf_token %}
+    <div class="col-auto">
+        <label for="example-email-input" class="col-2 col-form-label">Mat ID</label>
+        <div class="col-5">
+            <input name='mat_id' class="form-control" type="number" id="example-email-input">
+        </div>
+    </div>
+    <div class="col=auto">
+        <label for="example-email-input" class="col-2 col-form-label">Number of seats</label>
+        <div class="col-5">
+            <input name='no_seats' class="form-control" type="number">
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="pull-right">
+        <button type="submit" class="btn btn-success float-left">Book mat</button>
+    </div>
+
+
+    {{error}}
+
+</form>
+
+{% endblock %}
