@@ -1,26 +1,48 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
+
+  <!-- ***** Breadcrumb Area Start ***** -->
+  <div class="breadcumb-area">
+    <div class="container h-100">
+        <div class="row h-100 align-items-end">
+            <div class="col-12">
+                <div class="breadcumb--con">
+                    <h2 class="title">Customer Details</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Customer Checkout Details</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Breadcrumb Area End ***** -->
+
+    <div class="container">
         <div class="row">
-            <div class="col-sm-6 mx-auto" style="margin-top: 70px">
-                <h2>Customer Details</h2>
+            <div class="col-sm-6 mx-auto" style="margin-top: 80px">
+                <img src="../../static/img/core-img/pngLogo.png" alt="" >
+                <h2 class="text-center">Customer Details</h2>
                 <form action="{% url 'payment' %}" method="post">
                     {% csrf_token %}
                     <div class="form-group row">
-                        <label for="example-email-input" class="col-2 col-form-label">Name</label>
-                        <div class="col-10">
-                            <input name='fname' class="form-control" type="text" id="example-email-input">
+                        <label for="example-email-input" class="col-3 col-form-label">Name</label>
+                        <div class="col-12">
+                            <input style="border-radius: 0;" name='fname' class="form-control" type="text" id="example-email-input" placeholder="Your Name">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="example-email-input" class="col-2 col-form-label" placeholder="254xxxxxxxx">Phone Number</label>
-                        <div class="col-10">
-                            <input name='phone_number' class="form-control" type="number">
+                        <label for="example-email-input" class="col-3 col-form-label">Phone Number</label>
+                        <div class="col-12">
+                            <input style="border-radius: 0;" name='phone_number' class="form-control" type="number" placeholder="+254xx-xxx-xxx">
                         </div>
                     </div>
                     <div class="pull-right">
-                        <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-                            LIPA NA MPESA
+                        <button style="border-radius: 0;" type="submit" class="btn btn-dark" data-toggle="modal" data-target="#myModal">
+                            LIPA NA MPESA <img src="../../static/img/core-img/mpesa.png" width="30" alt="">
                         </button>
                     </div>
                     {{error}}
@@ -30,5 +52,9 @@
         </div>
 
     </div>
+
+
+
+
 
 {% endblock %}

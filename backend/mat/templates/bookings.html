@@ -1,58 +1,76 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Booking Confirmation</h2>
-<form action="{% url 'home' %}" method="post">
 
-    {% csrf_token %}
-    <h2>Your booking has been confirmed!</h2>
-    <h2>Thank you!</h2>
-    <h3>Bill details</h3>
-    <!-- Button to Open the Modal -->
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-       View Bill details
-    </button>
+<div class="container">
+    <h2 style="margin-top: 150px;">Booking Confirmation</h2>
+    <form action="{% url 'home' %}" method="post">
 
-    <!-- The Modal -->
-    <div class="modal" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
+        {% csrf_token %}
+        <h2>Your booking has been confirmed!</h2>
+        <h2>Thank you!</h2>
+        <h3>Bill details</h3>
+        <!-- Button to Open the Modal -->
+        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModal">
+            View Bill details
+        </button>
+        <!-- <button style="border-radius: 0;" class="btn mona-btn btn-2 mt-15" data-toggle="modal" data-target="#myModal">View Bill Details</button> -->
 
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">HERE'S YOUR BILL DETAILS</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
 
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b>Sacco name:</b> {{booking.sacco_name}}</li>
-                        <li class="list-group-item"><b>Terminus :</b> {{booking.terminus}}</li>
-                        <li class="list-group-item"><b>Route:</b> {{booking.route}}</li>
-                        <li class="list-group-item"><b>Number of seats:</b> {{booking.nos}}</li>
-                        <li class="list-group-item"><b> Fare:</b> {{booking.fare_price}}</li>
-                        <li class="list-group-item"><b>Total amount:</b> {{cost}}</li>
-                        <li class="list-group-item"><b>Date:</b> {{booking.date}}</li>
-                        <li class="list-group-item"><b>Time:</b> {{booking.time}}</li>
-                    </ul>
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">HERE'S YOUR BILL DETAILS</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><b>Sacco name:</b> {{booking.sacco_name}}</li>
+                            <li class="list-group-item"><b>Terminus :</b> {{booking.terminus}}</li>
+                            <li class="list-group-item"><b>Route:</b> {{booking.route}}</li>
+                            <li class="list-group-item"><b>Number of seats:</b> {{booking.nos}}</li>
+                            <li class="list-group-item"><b> Fare:</b> {{booking.fare_price}}</li>
+                            <li class="list-group-item"><b>Total amount:</b> {{cost}}</li>
+                            <li class="list-group-item"><b>Date:</b> {{booking.date}}</li>
+                            <li class="list-group-item"><b>Time:</b> {{booking.time}}</li>
+                        </ul>
 
 
-                </div>
+                    </div>
 
-                <!-- Modal footer -->
-                <div class="container">
-                    <div class="row">
-                        <div class="mpesa">
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-                                <a style="color: white;" href="{% url 'test_stk_push_success' %}">LIPA NA MPESA</a>    
-                            </button>
+                    <!-- Modal footer -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="mpesa">
+                                <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                                    <a style="color: white;" href="{% url 'test_stk_push_success' %}">LIPA NA MPESA</a>    
+                                </button> -->
+
+                                <div class="container" style="margin-bottom: 10px;">
+
+                                    <button type="button" class="btn btn-dark" data-toggle="modal"
+                                        data-target="#myModal">
+                                        <a style="color: white;" href="{% url 'test_stk_push_success' %}">LIPA NA
+                                            MPESA <img src="../../static/img/core-img/mpesa.png" alt="" width="30"></a>
+                                    </button>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
+
+    
+</div>
+
+
 
 {% endblock %}

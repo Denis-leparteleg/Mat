@@ -1,59 +1,200 @@
 {% extends 'base.html' %}
 {% block content %}
-<h3 style="margin-top: 150px;">{{msg}}</h3>
-<h2>List of matatus</h2>
-<table class="table table-striped">
-    <thead style="background-color: blue;color: white;">
-    <td>BOOKING ID</td>
-    <td>USER NAME</td>
-    <td>SACCO NAME</td>
-    <td>TERMINUS</td>
-    <td>ROUTE</td>
-    <td>NUM OF SEATS</td>
-    <td>FARE_PRICE</td>
-    <td>DATE</td>
-    <td>TIME</td>
-    <td>STATUS</td>
 
 
-    </thead>
-
-    {% for row in booking_list %}
-    <tr>
-        <td>{{row.id}}</td>
-        <td>{{row.customer_name}}</td>
-        <td>{{row.sacco_name}}</td>
-        <td>{{row.terminus}}</td>
-        <td>{{row.route}}</td>
-        <td>{{row.nos}}</td>
-        <td>{{row.fare_price}}</td>
-        <td>{{row.date}}</td>
-        <td>{{row.time}}</td>
-        <td>{{row.status}}</td>
-
-
-    </tr>
-    {% endfor %}
-</table>
-<form action="{% url 'cancellings' %}" method="post">
-    <h3>Choose mat to book</h3>
-    {% csrf_token %}
-    <div class="col-auto">
-        <label for="example-email-input" class="col-2 col-form-label">Mat ID</label>
-        <div class="col-5">
-            <input name='mat_id' class="form-control" type="number" id="example-email-input">
+<!-- ***** Breadcrumb Area Start ***** -->
+<div class="breadcumb-area">
+    <div class="container h-100">
+        <div class="row h-100 align-items-end">
+            <div class="col-12">
+                <div class="breadcumb--con">
+                    <h2 class="title">Book List</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Select Mat</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
         </div>
     </div>
+</div>
+<!-- ***** Breadcrumb Area End ***** -->
 
-    <br>
-    <br>
-    <div class="pull-right">
-        <button type="submit" class="btn btn-danger float-left">Cancel mat</button>
+
+
+<div class="container">
+    <h3 style="margin-top: 40px;">{{msg}}</h3>
+    <h2>List of matatus</h2>
+    <table class="table table-striped">
+        <thead style="background-color: rgb(0, 0, 0);color: white;">
+        <td>BOOKING ID</td>
+        <td>USER NAME</td>
+        <td>SACCO NAME</td>
+        <td>TERMINUS</td>
+        <td>ROUTE</td>
+        <td>NUM OF SEATS</td>
+        <td>FARE_PRICE</td>
+        <td>DATE</td>
+        <td>TIME</td>
+        <td>STATUS</td>
+    
+    
+        </thead>
+    
+        {% for row in booking_list %}
+        <tr>
+            <td>{{row.id}}</td>
+            <td>{{row.customer_name}}</td>
+            <td>{{row.sacco_name}}</td>
+            <td>{{row.terminus}}</td>
+            <td>{{row.route}}</td>
+            <td>{{row.nos}}</td>
+            <td>{{row.fare_price}}</td>
+            <td>{{row.date}}</td>
+            <td>{{row.time}}</td>
+            <td>{{row.status}}</td>
+    
+    
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+
+
+
+<!-- ***** Login Form Area Start ***** -->
+<section class="mona-casting-form-area section-padding-80-0">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+
+
+            <!-- Login Form -->
+            <div class="col-12 col-lg-6 col-xl-5">
+                <div class="casting-form mona-contact-form mb-80">
+                    <div class="contact-heading">
+                        <h2>Select Mat</h2>
+                    </div>
+
+                    <form action="{% url 'cancellings' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="text-dark" for="fullName">Mat Id:</label>
+                            <input type="number" class="form-control" required name="mat_id" id="example-email-input">
+                        </div>
+                        <button style="border-radius: 0;" class="btn mona-btn btn-2 mt-15">Book</button>
+                    
+                        {{error}}
+                    
+                    </form>
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="single-blog-post mb-30 wow fadeInUp" data-wow-delay="100ms">
+                    <div class="post-thumbnail slide-post owl-carousel">
+                        <a href="#"><img style="width: 300px;" src="../../static/img/logo.png" alt=""></a>
+                        <a href="#"><img src="../../static/img/pngfind.com-van-png-1709927.png" alt=""></a>
+                        <a href="#"><img src="../../static/img/pngfind.com-volvo-bus-png-270653.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="single-blog-post mb-30 wow fadeInUp" data-wow-delay="100ms">
+                    <div class="post-thumbnail slide-post owl-carousel">
+                        <a href="#"><img style="width: 300px;" src="." alt=""></a>
+                        <a href="#"><img src="../../img/pngfind.com-van-png-1709927.png" alt=""></a>
+                        <a href="#"><img src="../../img/pngfind.com-volvo-bus-png-270653.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
+</section>
+<!-- ***** Casting Form Area End ***** -->
+
+<!-- ***** Footer Area Start ***** -->
+<footer class="footer-area section-padding-80-0">
+    <div class="container">
+        <div class="row justify-content-between">
+
+            <!-- Single Footer Widget -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                <div class="single-footer-widget mb-60">
+                    <!-- Logo -->
+                    <a href="#" class="d-block mb-4"><img style="width: 130px;" src="./img/core-img/pngLogo.png"
+                            alt=""></a>
+                    <p>Integer vehicula mauris libero, at molestie eros imperdiet sit amet. Suspendisse mattis ante sit
+                        amet ante.</p>
+                    <div class="copywrite-text">
+                        <p>&copy;
+                            Copyright &copy;<script>
+                                document.write(new Date().getFullYear());
+                            </script> All rights reserved<i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+                                href="https://herouapp.com" target="_blank">Nganya</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Footer Widget -->
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                <div class="single-footer-widget mb-60">
+                    <!-- Widget Title -->
+                    <h4 class="widget-title">Our Links</h4>
+
+                    <!-- Catagories Nav -->
+                    <nav>
+                        <ul class="our-link">
+                            <li><a href="#">Lorem Ipsum</a></li>
+                            <li><a href="#">Lorem Ipsum</a></li>
+                            <li><a href="#">Lorem Ipsum</a></li>
+                            <li><a href="#">Lorem Ipsum</a></li>
+                            <li><a href="#">Lorem Ipsum</a></li>
+                            <li><a href="#">Lorem Ipsum</a></li>
+                            <li><a href="#">Lorem Ipsum</a></li>
+                            <li><a href="#">Lorem Ipsum</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Single Footer Widget -->
+            <div class="col-12 col-lg-4 col-xl-3">
+                <div class="single-footer-widget mb-60">
+                    <!-- Widget Title -->
+                    <h4 class="widget-title">Contact</h4>
+                    <!-- Footer Content -->
+                    <div class="footer-content mb-30">
+                        <h4>+254-8888-6868</h4>
+                        <h6>40 Ke Street 133/2 Nairobi City</h6>
+                    </div>
+                    <!-- Social Info -->
+                    <div class="footer-social-info">
+                        <a href="#" class="facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><i
+                                class="fa fa-facebook"></i></a>
+                        <a href="#" class="twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><i
+                                class="fa fa-twitter"></i></a>
+                        <a href="#" class="pinterest" data-toggle="tooltip" data-placement="top" title="Pinterest"><i
+                                class="fa fa-pinterest"></i></a>
+                        <a href="#" class="instagram" data-toggle="tooltip" data-placement="top" title="Instagram"><i
+                                class="fa fa-instagram"></i></a>
+                        <a href="#" class="youtube" data-toggle="tooltip" data-placement="top" title="YouTube"><i
+                                class="fa fa-youtube-play"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+<!-- ***** Footer Area End ***** -->
 
 
-    {{error}}
 
-</form>
 
 {% endblock %}
