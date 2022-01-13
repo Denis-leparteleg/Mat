@@ -6,41 +6,6 @@
 
 
 
-<div class="container" style="margin-top: 170px;">
-    <div style="margin-top: 50px;margin-left: 440px;" class="col-md-5">
-        <img src="../../../static/img/logo.png" width="150" alt="" srcset="">
-    </div>
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="card" style="margin-top:2%; padding:20px;background-image: url(/static/images/froyo4.jpg);background-size: cover;">
-                <div class="card-body">
-                    <!-- <button style='cursor:none;' class="btn btn-light btn-sm hoverable" onclick="myFunction()"><img style="width: 20px;height: 20px" src="" alt=""></button> -->
-                    <h5 class="card-title"><a>Register to be a member</a> <span style="float:right">Are you a member? <a
-                            href="{% url 'login' %}" class="text-info hoverable">Login</a></span></h5>
-                    <div class="card-text">
-                        <form class="signup" id="signup_form" action="{% url 'account_signup' %}" method="post" novalidate>
-                            <div class="form-group">
-                                {% csrf_token%}
-                                {{ form|crispy}}
-                            </div>
-                            <!-- <button type="submit" class="btn btn-dark btn-sm hoverable"> Register</button> -->
-                            {% if redirect_field_value %}
-                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                            {% endif %}
-                            <button style="border-radius: 0;" class="btn mona-btn btn-2 mt-15"
-                                type="submit">{% trans "Sign Up" %} &raquo;</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="col-md-2"></div>
-    </div>
-</div>
-
-
  <!-- Preloader -->
  <div id="preloader">
     <div class="wrapper">
@@ -48,60 +13,7 @@
     </div>
   </div>
 
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area">
-      <!-- Main Header Start -->
-      <div class="main-header-area">
-        <div class="classy-nav-container breakpoint-off">
-          <!-- Classy Menu -->
-          <nav class="classy-navbar justify-content-between" id="monaNav">
   
-            <!-- Background Curve -->
-            <div class="bg-curve" style="background-image: url(./img/core-img/curve.png);"></div>
-  
-            <!-- Logo -->
-            <a class="nav-brand" href="index.html"><img style="width: 80px;" src="./img/core-img/logo.png" alt=""></a>
-  
-            <!-- Navbar Toggler -->
-            <div class="classy-navbar-toggler">
-              <span class="navbarToggler"><span></span><span></span><span></span></span>
-            </div>
-  
-            <!-- Menu -->
-            <div class="classy-menu">
-              <!-- Menu Close Button -->
-              <div class="classycloseIcon">
-                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-              </div>
-  
-              <!-- Nav Start -->
-              <div class="classynav">
-                <ul id="nav">
-                  <li class="current-item"><a href="./index.html">Home</a></li>
-                  <li><a href="./booking.html">Booking</a></li>
-                  <li><a href="./contact.html">Contact Us</a></li>
-                  <li><a href="#">Account</a>
-                    <ul class="dropdown">
-                      <li><a href="./blog.html">- Account Details</a></li>
-                      <li><a href="./single-blog.html">- Edit Profile</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="./contact.html">Login</a></li>
-                </ul>
-  
-                <!-- Search Icon -->
-                <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                  <i class="icon_search"></i>
-                </div>
-              </div>
-              <!-- Nav End -->
-  
-            </div>
-          </nav>
-        </div>
-      </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
 
   <!-- ***** Top Search Area Start ***** -->
   <div class="top-search-area">
@@ -159,9 +71,9 @@
         <div class="col-lg-6">
           <div class="single-blog-post mb-30 wow fadeInUp" data-wow-delay="100ms">
             <div class="post-thumbnail slide-post owl-carousel">
-              <a href="#"><img style="width: 300px;" src="./img/logo.png" alt=""></a>
-              <a href="#"><img src="./img/pngfind.com-van-png-1709927.png" alt=""></a>
-              <a href="#"><img src="./img/pngfind.com-volvo-bus-png-270653.png" alt=""></a>
+                <a href="#"><img src="../../../static/img/pngfind.com-volvo-bus-png-270653.png" alt=""></a>
+                <a href="#"><img src="../../../static/img/pngfind.com-van-png-1709927.png" alt=""></a>
+                <a href="#"><img style="width: 300px;" src="../../../static/img/logo.png" alt=""></a>
             </div>
           </div>
         </div>
@@ -180,7 +92,7 @@
                     </div>
                     <!-- <button type="submit" class="btn btn-dark btn-sm hoverable"> Register</button> -->
                     {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    <input required type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                     {% endif %}
                     <button style="border-radius: 0;" class="btn mona-btn btn-2 mt-15"
                         type="submit">{% trans "Sign Up" %} &raquo;</button>
