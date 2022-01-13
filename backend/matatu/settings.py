@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     # 'tinymice',
     'bootstrap4',
     'bootstrap3',
-    # 'crispy_forms',
+    'crispy_forms',
     # 'django_static_fontawesome',
     'allauth',
     'allauth.account',
@@ -66,6 +66,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django_daraja',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

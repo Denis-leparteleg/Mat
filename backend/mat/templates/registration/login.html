@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container" style="margin-top:7%;">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card" style="margin-top:14%; padding:20px;background-image: url(/static/images/froyo4.jpg);background-size: cover;">
+                <div class="card-body">
+                    <button style='cursor:none;' class="btn btn-light btn-sm hoverable" onclick="myFunction()"><img style="width: 20px;height: 20px" src="/static/images/try3.png" alt=""></button>
+                    <h5 class="card-title"><a style='cursor:none;'>Sign in to continue</a> <span style="float:right;cursor:none;">Not a member yet? <a style='cursor:none;'
+                            href="{% url 'signup' %}" class="text-info hoverable">Register now</a></span></h5>
+                    <div class="card-text">
+                        <form action="" method="post" novalidate >
+                            {% csrf_token%}
+                            {{ form|crispy}}
+                            <button style='cursor:none;' type="submit" class="btn btn-dark btn-sm hoverable">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+</div>
+{% endblock %}

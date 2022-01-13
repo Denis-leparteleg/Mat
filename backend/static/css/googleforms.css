@@ -1,0 +1,190 @@
+.casting-form-thumbnail img {
+  width: 100%; }
+
+.mona-contact-form {
+  position: relative;
+  z-index: 1; }
+  .mona-contact-form .contact-heading {
+    margin-bottom: 20px; }
+    .mona-contact-form .contact-heading h2 {
+      display: block;
+      margin-bottom: 15px;
+      font-size: 48px; }
+      @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        .mona-contact-form .contact-heading h2 {
+          font-size: 30px; } }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .mona-contact-form .contact-heading h2 {
+          font-size: 36px; } }
+      @media only screen and (max-width: 767px) {
+        .mona-contact-form .contact-heading h2 {
+          font-size: 24px; } }
+    .mona-contact-form .contact-heading p {
+      margin-bottom: 0;
+      font-size: 16px; }
+      @media only screen and (max-width: 767px) {
+        .mona-contact-form .contact-heading p {
+          font-size: 14px; } }
+  .mona-contact-form label {
+    font-size: 16px;
+    color: #a6a6a6;
+    display: block;
+    margin-bottom: 15px; }
+  .mona-contact-form .id_username {
+    width: 100%;
+    height: 50px;
+    padding: 0 20px;
+    border-radius: 0; }
+    .mona-contact-form .id_username:focus {
+      box-shadow: none;
+      border-color: #000000; }
+  .mona-contact-form textarea.id_username {
+    height: 110px;
+    padding: 20px; }
+
+
+
+
+
+    .casting-form-thumbnail img {
+        width: 100%; }
+      
+      .mona-contact-form {
+        position: relative;
+        z-index: 1; }
+        .mona-contact-form .contact-heading {
+          margin-bottom: 20px; }
+          .mona-contact-form .contact-heading h2 {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 48px; }
+            @media only screen and (min-width: 992px) and (max-width: 1199px) {
+              .mona-contact-form .contact-heading h2 {
+                font-size: 30px; } }
+            @media only screen and (min-width: 768px) and (max-width: 991px) {
+              .mona-contact-form .contact-heading h2 {
+                font-size: 36px; } }
+            @media only screen and (max-width: 767px) {
+              .mona-contact-form .contact-heading h2 {
+                font-size: 24px; } }
+          .mona-contact-form .contact-heading p {
+            margin-bottom: 0;
+            font-size: 16px; }
+            @media only screen and (max-width: 767px) {
+              .mona-contact-form .contact-heading p {
+                font-size: 14px; } }
+        .mona-contact-form label {
+          font-size: 16px;
+          color: #a6a6a6;
+          display: block;
+          margin-bottom: 15px; }
+        .mona-contact-form .id_password2 {
+          width: 100%;
+          height: 50px;
+          padding: 0 20px;
+          border-radius: 0; }
+          .mona-contact-form .id_password2:focus {
+            box-shadow: none;
+            border-color: #000000; }
+        .mona-contact-form textarea.id_password2 {
+          height: 110px;
+          padding: 20px; }
+
+          
+
+
+
+
+
+          .casting-form-thumbnail img {
+            width: 100%; }
+          
+          .mona-contact-form {
+            position: relative;
+            z-index: 1; }
+            .mona-contact-form .contact-heading {
+              margin-bottom: 20px; }
+              .mona-contact-form .contact-heading h2 {
+                display: block;
+                margin-bottom: 15px;
+                font-size: 48px; }
+                @media only screen and (min-width: 992px) and (max-width: 1199px) {
+                  .mona-contact-form .contact-heading h2 {
+                    font-size: 30px; } }
+                @media only screen and (min-width: 768px) and (max-width: 991px) {
+                  .mona-contact-form .contact-heading h2 {
+                    font-size: 36px; } }
+                @media only screen and (max-width: 767px) {
+                  .mona-contact-form .contact-heading h2 {
+                    font-size: 24px; } }
+              .mona-contact-form .contact-heading p {
+                margin-bottom: 0;
+                font-size: 16px; }
+                @media only screen and (max-width: 767px) {
+                  .mona-contact-form .contact-heading p {
+                    font-size: 14px; } }
+            .mona-contact-form label {
+              font-size: 16px;
+              color: #a6a6a6;
+              display: block;
+              margin-bottom: 15px; }
+            .mona-contact-form .id_email {
+              width: 100%;
+              height: 50px;
+              padding: 0 20px;
+              border-radius: 0; }
+              .mona-contact-form .id_email:focus {
+                box-shadow: none;
+                border-color: #000000; }
+            .mona-contact-form textarea.id_email {
+              height: 110px;
+              padding: 20px; }
+
+              
+
+
+
+              .casting-form-thumbnail img {
+                width: 100%; }
+              
+              .mona-contact-form {
+                position: relative;
+                z-index: 1; }
+                .mona-contact-form .contact-heading {
+                  margin-bottom: 20px; }
+                  .mona-contact-form .contact-heading h2 {
+                    display: block;
+                    margin-bottom: 15px;
+                    font-size: 48px; }
+                    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+                      .mona-contact-form .contact-heading h2 {
+                        font-size: 30px; } }
+                    @media only screen and (min-width: 768px) and (max-width: 991px) {
+                      .mona-contact-form .contact-heading h2 {
+                        font-size: 36px; } }
+                    @media only screen and (max-width: 767px) {
+                      .mona-contact-form .contact-heading h2 {
+                        font-size: 24px; } }
+                  .mona-contact-form .contact-heading p {
+                    margin-bottom: 0;
+                    font-size: 16px; }
+                    @media only screen and (max-width: 767px) {
+                      .mona-contact-form .contact-heading p {
+                        font-size: 14px; } }
+                .mona-contact-form label {
+                  font-size: 16px;
+                  color: #a6a6a6;
+                  display: block;
+                  margin-bottom: 15px; }
+                .mona-contact-form .id_password1 {
+                  width: 100%;
+                  height: 50px;
+                  padding: 0 20px;
+                  border-radius: 0; }
+                  .mona-contact-form .id_password1:focus {
+                    box-shadow: none;
+                    border-color: #000000; }
+                .mona-contact-form textarea.id_password1 {
+                  height: 110px;
+                  padding: 20px; }
+              

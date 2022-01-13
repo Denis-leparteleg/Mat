@@ -22,5 +22,8 @@ urlpatterns = [
     path('payment/', views.payment, name='payment'),
     path('access/token', views.getAccessToken, name='get_mpesa_access_token'),
     path('', include(test_patterns)),
-    path('accounts/', include('allauth.urls')),
+    path('signup/', views.signup, name='signup'),
+    path('login/', views.login, name='login'),
+    path('account/', include('allauth.urls')),
+    path('account/', include('django.contrib.auth.urls')),
 ]

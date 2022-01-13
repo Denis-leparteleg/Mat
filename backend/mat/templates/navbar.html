@@ -69,11 +69,11 @@
                                 <ul class="dropdown">
                                     <li><a href="./blog.html">- Account Details</a></li>
                                     <li><a href="./single-blog.html">- Edit Profile</a></li>
-                                    <li><a href="{% url 'logout' %}">- Logout</a></li>
+                                    <li><a href="{% url 'account_logout' %}">- Logout</a></li>
                                 </ul>
                             </li>
                             {% else %}
-                            <li><a href="{% url 'logout' %}">Login</a></li>
+                            <li><a href="{% url 'login' %}">Login</a></li>
                             {% endif %}
                         </ul>
 

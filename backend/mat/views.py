@@ -17,6 +17,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 import json
 import re
+from .forms import SignupForm
 
 # Create your views here.
 
@@ -214,6 +215,8 @@ def seebookings(request,new={}):
 #             return render(request, 'users/registers.html', context)
 #     else:
 #         return render(request, 'users/signup.html', context)
+
+
 # def signin(request):
 #     context = {}
 #     if request.method == 'POST':
@@ -234,3 +237,19 @@ def seebookings(request,new={}):
 #         context["error"] = "You are not logged in"
 #         return render(request, 'users/login.html', context)
 
+
+def signup(request):
+    model=User
+    form_class = SignupForm
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('index')
+    else:
+        form = SignupForm()
+    return render(request, 'registration/signup.html', {'form': form})
